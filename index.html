@@ -56,7 +56,7 @@ function bondJSON(data){
 	toConsole(data);
 }
 
-function setupServer(server,cat){
+function serverSetup(server,cat){
 	server = server.toLowerCase();
 	if(server == "php"){//use web service
 		let url = "api.php?cat=" + cat;
