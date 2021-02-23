@@ -1,0 +1,30 @@
+body {font-family:georgia;}
+#films {
+    max-width:600px;
+    margin:5px;
+    padding:2px;
+}
+#films > div {
+    padding:5px;
+    min-height:40px;
+    margin-bottom:5px;
+    border:1px solid #E77D2C;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    position:relative; /* required to place #pic to right */
+}
+
+#films h3 {
+    font-family:georgia;
+    padding:5px;
+    color:#fff;
+    background:#E77D2C;
+    margin:0;
+}
+
+.pic{
+    position:absolute;
+    right:10px;
+    top:10px;
+}
