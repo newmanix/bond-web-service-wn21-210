@@ -7,6 +7,22 @@ body {font-family:georgia;}
 <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+
+function serverSetup(server,cat){
+	server = server.toLowerCase();
+	if(server == "php"){//use web service
+		let url = "api.php?cat=" + cat;
+	}else{//server is HTML only - simulate web service
+		if(cat == "box"){//box office
+			let url = "data/bond-box-office.js";
+		}else{//year
+			let url = "data/bond-year.js";	
+		}
+	}
+	return url;
+}
+
+
 $(document).ready(function() {  
 
 	$('.category').click(function(e){
@@ -56,19 +72,7 @@ function bondJSON(data){
 	toConsole(data);
 }
 
-function serverSetup(server,cat){
-	server = server.toLowerCase();
-	if(server == "php"){//use web service
-		let url = "api.php?cat=" + cat;
-	}else{//server is HTML only - simulate web service
-		if(cat == "box"){//box office
-			let url = "data/bond-box-office.js";
-		}else{//year
-			let url = "data/bond-year.js";	
-		}
-	}
-	return url;
-}
+
 
 </script>
 </head>
