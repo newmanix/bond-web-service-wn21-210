@@ -10,13 +10,14 @@ body {font-family:georgia;}
 
 function serverSetup(server,cat){
 	server = server.toLowerCase();
+	let url = "";
 	if(server == "php"){//use web service
-		let url = "api.php?cat=" + cat;
+		url = "api.php?cat=" + cat;
 	}else{//server is HTML only - simulate web service
 		if(cat == "box"){//box office
-			let url = "data/bond-box-office.js";
+			url = "data/bond-box-office.js";
 		}else{//year
-			let url = "data/bond-year.js";	
+			url = "data/bond-year.js";	
 		}
 	}
 	return url;
