@@ -9,20 +9,19 @@ body {font-family:georgia;}
 <script type="text/javascript">
 
 function serverSetup(server,cat){
-	server = server.toLowerCase();
-	let url = "";
-	if(server == "php"){//use web service
-		url = "api.php?cat=" + cat;
-	}else{//server is HTML only - simulate web service
-		if(cat == "box"){//box office
-			url = "data/bond-box-office.js";
-		}else{//year
-			url = "data/bond-year.js";	
-		}
-	}
-	return url;
+   server = server.toLowerCase();
+   let url = "";
+   if(server == "php"){//use web service
+       url = "api.php?cat=" + cat;
+   }else{//server is HTML only - simulate web service
+       if(cat == "box"){//box office
+           url = "data/bond-box-office.js";
+       }else{//year
+           url = "data/bond-year.js"; 
+       }
+   }
+   return url;
 }
-
 
 $(document).ready(function() {  
 
@@ -33,35 +32,27 @@ $(document).ready(function() {
 	});
 });	
 
-
 function loadAJAX(cat)
 {
-	//AJAX connection will go here
-	//alert('cat is: ' + cat);
-
-	/* url can be run on a server running PHP or 
-	   use the a standard HTML server
-
-	   Indicate below if server is PHP or HTML
-
-	   let url = serverSetup("php",cat); //setup to run against PHP server
-	   let url = serverSetup("html",cat); //setup to run against HTML server
-
-
-	*/
-	
-	let url = serverSetup("html",cat);
-	
-	$.ajax({
-		type:"GET",
-		dataType: "json",
-		url:url,
-		success:bondJSON
-	});
-
-	//url:"api.php?cat=" + cat,
-
+   /* url can be run on a server running PHP or
+      use the a standard HTML server
+ 
+      Indicate below if server is PHP or HTML
+ 
+      let url = serverSetup("php",cat); //setup to run against PHP server
+      let url = serverSetup("html",cat); //setup to run against HTML server
+   */
+  
+   let url = serverSetup("html",cat);
+  
+   $.ajax({
+       type:"GET",
+       dataType: "json",
+       url:url,
+       success:bondJSON
+   });
 }
+
     
 function toConsole(data)
 {//return data to console for JSON examination
