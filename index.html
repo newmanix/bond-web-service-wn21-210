@@ -21,11 +21,24 @@ function loadAJAX(cat)
 {
 	//AJAX connection will go here
 	//alert('cat is: ' + cat);
+
+	/* url can be run on a server running PHP or 
+	   use the a standard HTML server
+
+	   Indicate below if server is PHP or HTML
+
+	   let url = serverSetup("php",cat); //setup to run against PHP server
+	   let url = serverSetup("html",cat); //setup to run against HTML server
+
+
+	*/
+	
+	let url = serverSetup("php",cat);
 	
 	$.ajax({
 		type:"GET",
 		dataType: "json",
-		url:"data/bond-year.js",
+		url:url,
 		success:bondJSON
 	});
 
@@ -41,6 +54,20 @@ function toConsole(data)
 function bondJSON(data){
 //JSON processing data goes here
 	toConsole(data);
+}
+
+function setupServer(server,cat){
+	server = server.toLowerCase();
+	if(server == "php"){//use web service
+		let url = "api.php?cat=" + cat;
+	}else{//server is HTML only - simulate web service
+		if(cat == "box"){//box office
+			let url = "data/bond-box-office.js";
+		}else{//year
+			let url = "data/bond-year.js";	
+		}
+	}
+	return url;
 }
 
 </script>
