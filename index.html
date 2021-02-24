@@ -64,6 +64,13 @@ function bondJSON(data){
 //JSON processing data goes here
 	//toConsole(data);
 	//$("#output").text(JSON.stringify(data));
+
+    //clear the previous films
+    $("#films").html("");
+
+    //write web service title
+    $("filmtitle").html(data.title);
+
 	$.each(data.films,function(i,item){
 
 		let text = `
@@ -73,12 +80,11 @@ function bondJSON(data){
                <b>Bond</b>: ${item.Bond}<br />
                <b>Box Office</b>: ${item.BoxOffice}<br />
                <b>Writers</b>: ${item.Writers}<br />
+               <div class="pic"><img src="thumbnails/${item.Image}" /></div>
 			`;
 		$("<div></div>").html(text).appendTo("#films");	
 	});
 }
-
-
 
 </script>
 </head>
